@@ -57,7 +57,8 @@ jobs:
         activate-environment: weather-tools
         miniforge-variant: Miniforge3
         miniforge-version: latest
-        use-mamba: true
+        auto-update-conda: true
+        # use-mamba: true
     - name: Check MetView's installation
       shell: bash -l {0}
       run: python -m metview selfcheck
