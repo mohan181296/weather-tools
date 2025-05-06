@@ -374,9 +374,9 @@ class ToBigQuery(ToDataSink):
                     )
                 vector_df[var] = pd.Series(values, dtype=object)
 
-            vector_df[DATA_IMPORT_TIME_COLUMN] = self.import_time
-            vector_df[DATA_URI_COLUMN] = uri
-            vector_df[DATA_FIRST_STEP] = first_time_step
+            # vector_df[DATA_IMPORT_TIME_COLUMN] = self.import_time
+            # vector_df[DATA_URI_COLUMN] = uri
+            # vector_df[DATA_FIRST_STEP] = first_time_step
             num_chunks = math.ceil(len(vector_df) / self.rows_chunk_size)
             logger.info(f"{uri!r} -- {coordinate!r}'s vector_df divided into {num_chunks} chunk(s).")
             for i in range(num_chunks):
@@ -465,9 +465,9 @@ def to_table_schema(columns: t.List[t.Tuple[str, str]]) -> t.List[bigquery.Schem
     ]
 
     # Add an extra columns for recording import metadata.
-    fields.append(bigquery.SchemaField(DATA_IMPORT_TIME_COLUMN, 'TIMESTAMP', mode='NULLABLE'))
-    fields.append(bigquery.SchemaField(DATA_URI_COLUMN, 'STRING', mode='NULLABLE'))
-    fields.append(bigquery.SchemaField(DATA_FIRST_STEP, 'TIMESTAMP', mode='NULLABLE'))
+    # fields.append(bigquery.SchemaField(DATA_IMPORT_TIME_COLUMN, 'TIMESTAMP', mode='NULLABLE'))
+    # fields.append(bigquery.SchemaField(DATA_URI_COLUMN, 'STRING', mode='NULLABLE'))
+    # fields.append(bigquery.SchemaField(DATA_FIRST_STEP, 'TIMESTAMP', mode='NULLABLE'))
     fields.append(bigquery.SchemaField(GEO_POINT_COLUMN, 'GEOGRAPHY', mode='NULLABLE'))
     fields.append(bigquery.SchemaField(GEO_POLYGON_COLUMN, 'GEOGRAPHY', mode='NULLABLE'))
 
