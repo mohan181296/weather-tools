@@ -22,8 +22,8 @@ RUN conda install -n base conda-libmamba-solver
 RUN conda config --set solver libmamba
 
 # Create conda env using environment.yml
-ARG weather_tools_git_rev=main
-RUN git clone https://github.com/google/weather-tools.git /weather
+ARG weather_tools_git_rev=mohan_changes
+RUN git clone https://github.com/mohan181296/weather-tools.git /weather
 WORKDIR /weather
 RUN git checkout "${weather_tools_git_rev}"
 RUN rm -r /weather/weather_*/test_data/
